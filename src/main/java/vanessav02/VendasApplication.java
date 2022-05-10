@@ -25,15 +25,17 @@ public class VendasApplication {
     }
 }
 
-//1. cria uma nova classe de configuração (nomenclatura padrão xxxConfiguration)
-//2. anotação @Configuration nessa classe - diz para o spring que é uma classe de configuração
-//3. anotação @Bean("nome do bean") no método para para fazer a configuração - diz que são objetos configuráveis
-//   Na classe principal:
-//4. anotação @Autowired na variável que vai utilizar a configuração
-//5. anotação @Qualifier("nome do bean") na variável que vai utilizar a configuração - identifica que eu quero que injete o que foi feito no Configuration, do bean específico
+//   9 Injeção de Dependências
 
-// Container IOC (inversion of control) do Spring Framework:
-// {
-//   @Configuration [@Bean]
-//   @Component [@Controler, @Repository, @Service]
-// }
+//1. anotação @Repository, @Service e @Controller nas classes correspondentes
+//2. o Service (regras de negócio) precisa do Repository (acessa/modifica o banco de dados).
+//   o Repository é uma dependência do Service.
+//3. não podemos instanciar o repositoy com x = new Repository(), pq abrir uma conexão diretamente com banco de dados é complexa, pesada.
+//   solução: delega essa instância para o container de injeção de dependencias do spring (IOC), que faz isso de forma automática.
+//   a classe que vai ser escaneada pelo container já tem a anotação @Repository, e o spring boot vai instanciar o
+//   repository, adicionar no container a injeção, e vai estar pronto para injetar onde precisar (no caso no service)
+//   - cria um construtor, pelo construtor adiciona a dependência.
+//   - facultativo adicionar @Autowired em cima desse construtor - diz para o spring boot que ele deve injetar a instância
+//   Resumindo: em vez de se instanciar diretamente, se intancia pelo construtor! Delega ao container a criação da instância e injeção.
+//   (Se não quiser injetar via construtor, pode-se colocar a anotação @Autowired acima da declaração da propriedade, direto, eliminando o construtor,
+//   ou também dá para injetar via método set()).
