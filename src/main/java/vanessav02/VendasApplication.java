@@ -25,10 +25,12 @@ public class VendasApplication {
     }
 }
 
-//   10 Configuração externalizada: application.properties
+//   11 Trabalhando com múltiplos ambientes e profiles
 
-//1. criação do arquivo application.properties -> modelo chave-valor.
-//   configurações customizadas sem precisar criar os @Bean.
-//   Elimina o Bean da classe MinhaConfiguration e usa a chave application.name para referenciar a String,
-//   com a anotação @Value("${application.name}") na propridade.
-//Tomcat started on port(s): 8081 (http) with context path '/sistema-vendas'
+//1. Um application-nomedoambente.properties para cada ambiente (dsv, prod, teste). Ex: application.name=development
+//   No application.properties padrão, adicionar spring.profiles.active=nomedoambiente, para selecionar a configuração de qual ambiente vai subir
+//2. O perfil também funciona com as @Configuration. Cria um @Bean para a configuração e usa com
+//   a anotação @Profile("nomedoambiente"). Só vai executar quando estiver no perfil selecionado.
+//   Exemplo feito com CommandLineRunner - para executar em linha de comando assim que a aplicação inicalizar.
+
+
