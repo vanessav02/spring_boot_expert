@@ -1,7 +1,5 @@
 package vanessav02;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,12 +23,11 @@ public class VendasApplication {
     }
 }
 
-//   11 Trabalhando com múltiplos ambientes e profiles
+//   12 Criando Annotations customizadas de configuração
 
-//1. Um application-nomedoambente.properties para cada ambiente (dsv, prod, teste). Ex: application.name=development
-//   No application.properties padrão, adicionar spring.profiles.active=nomedoambiente, para selecionar a configuração de qual ambiente vai subir
-//2. O perfil também funciona com as @Configuration. Cria um @Bean para a configuração e usa com
-//   a anotação @Profile("nomedoambiente"). Só vai executar quando estiver no perfil selecionado.
-//   Exemplo feito com CommandLineRunner - para executar em linha de comando assim que a aplicação inicalizar.
+//1. Cria-se @ Annotations customizadas para, por ex., facilitar ao modificar o nome dos ambientes, e para nao precisar mudar em todas as chamadas a string de @Profiles("nomedoambiente")
+//   new > java Class > kind: @Annotation (Anotação @interface Development)
+//   E em MinhaConfiguration anota com o @Development
+// .
 
 
