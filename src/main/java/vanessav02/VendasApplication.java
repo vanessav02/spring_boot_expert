@@ -23,11 +23,20 @@ public class VendasApplication {
     }
 }
 
-//   12 Criando Annotations customizadas de configuração
+// Sessão 3: Persistência e acesso a dados com Spring Data JPA
+//        >> Configurando e obtendo conexões com bases de dados
 
-//1. Cria-se @ Annotations customizadas para, por ex., facilitar ao modificar o nome dos ambientes, e para nao precisar mudar em todas as chamadas a string de @Profiles("nomedoambiente")
-//   new > java Class > kind: @Annotation (Anotação @interface Development)
-//   E em MinhaConfiguration anota com o @Development
+//1. Adicionar a dependência spring-boot-starter-data-jpa
+//   Adicionar a dependência , driver do banco de dados (h2, banco de dados em memória).
+//   Conexão com o bd -> configurar no application.properties (spring.datasource.)
+//
+//   No /h2-console:
+/*
+create table cliente (
+ id int not null primary key,
+ nome varchar(100)
+)
+*/
 // .
 
 
