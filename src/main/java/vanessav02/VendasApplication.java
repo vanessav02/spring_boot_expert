@@ -24,19 +24,11 @@ public class VendasApplication {
 }
 
 // Sessão 3: Persistência e acesso a dados com Spring Data JPA
-//        >> Configurando e obtendo conexões com bases de dados
+//        >> Scripts de criação do banco de dados
 
-//1. Adicionar a dependência spring-boot-starter-data-jpa
-//   Adicionar a dependência , driver do banco de dados (h2, banco de dados em memória).
-//   Conexão com o bd -> configurar no application.properties (spring.datasource.)
-//
-//   No /h2-console:
-/*
-create table cliente (
- id int not null primary key,
- nome varchar(100)
-)
-*/
+//1. O h2 (banco em memória) só funciona enquanto a instância dele está rodando. Quando a aplicação reinicia, ele também. Scripts são perdidos.
+//   Para evitar rodar os scripts toda vez, spring boot tem uma solução p executar scripts assim q a aplicação sobe.
+//   New file: data.sql (executado assim que a aplicação subir)
 // .
 
 
