@@ -24,11 +24,7 @@ public class VendasApplication {
 }
 
 // Sessão 3: Persistência e acesso a dados com Spring Data JPA
-//        >> Scripts de criação do banco de dados
+//        >> Criando as classes de modelo
 
-//1. O h2 (banco em memória) só funciona enquanto a instância dele está rodando. Quando a aplicação reinicia, ele também. Scripts são perdidos.
-//   Para evitar rodar os scripts toda vez, spring boot tem uma solução p executar scripts assim q a aplicação sobe.
-//   New file: data.sql (executado assim que a aplicação subir)
+//1. Criar as entities para Cliente, Pedido, Produto, ItemPedido
 // .
-
-
