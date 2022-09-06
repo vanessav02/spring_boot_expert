@@ -2,8 +2,7 @@ package vanessav02.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vanessav02.model.Cliente;
-import vanessav02.repository.ClientesRepository;
+import vanessav02.domain.repositorio.ClientesRepository;
 
 @Service
 public class ClientesService {
@@ -14,7 +13,7 @@ public class ClientesService {
     public ClientesService(ClientesRepository clientesRepository) {
         this.clientesRepository = clientesRepository;
     }
-
+/*
     public void salvarCliente(Cliente cliente) {
         validarCliente(cliente);
         this.clientesRepository.persistir(cliente);
@@ -22,5 +21,5 @@ public class ClientesService {
 
     public void validarCliente (Cliente cliente) {
         //aplica validações
-    }
+    }*/
 }
