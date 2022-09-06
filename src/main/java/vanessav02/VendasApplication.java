@@ -20,6 +20,7 @@ public class VendasApplication {
     @Bean
     public CommandLineRunner init(@Autowired ClientesRepository clientesRepository){
         return args -> {
+            System.out.println("**Salvando clientes**");
             Cliente cliente = new Cliente("Ana");
             clientesRepository.salvar(cliente);
 
@@ -28,6 +29,30 @@ public class VendasApplication {
 
             List<Cliente> todosClientes = clientesRepository.obterTodos();
             todosClientes.forEach(System.out::println);
+
+            System.out.println("**Atualizando clientes**");
+            todosClientes.forEach(c -> {
+                c.setNome(c.getNome() + " atualizado");
+                clientesRepository.atualizar(c);
+            });
+
+            todosClientes = clientesRepository.obterTodos();
+            todosClientes.forEach(System.out::println);
+
+            System.out.println("**Buscando clientes**");
+            clientesRepository.buscarPorNome("Ana").forEach(System.out::println);
+
+            System.out.println("**Deletando clientes**");
+            clientesRepository.obterTodos().forEach(c -> clientesRepository.deletar(c));
+
+            todosClientes = clientesRepository.obterTodos();
+            if (todosClientes.isEmpty()){
+                System.out.println("# Nenhum cliente encontrado.");
+            }
+            else {
+                todosClientes.forEach(System.out::println);
+            }
+
         };
     }
 
@@ -45,9 +70,9 @@ public class VendasApplication {
 }
 
 // Sessão 3: Persistência e acesso a dados com Spring Data JPA
-//        >> Salvando e recuperando clientes
+//        >> Concluindo o cadastro de clientes
 
-//1. Criar o repositório (ou DAOs - Data Access Object) para clientes
-//2. Injetar instância de JdbcTemplate - tem métodos que permitem que se faça operações na base de dados
-//3. Criar um CommandLineRunner para executar a operação de inserir clientes
+//1. Operações de atualizar e deletar cliente
+//
+//
 // .
